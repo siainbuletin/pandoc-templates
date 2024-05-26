@@ -8,6 +8,9 @@ $if(CJKmainfont)$
 \PassOptionsToPackage{space}{xeCJK}
 $endif$
 %
+
+%%%%%%%%%%%%% DOCUMENT CLASS CONFIGURATION %%%%%%%%%%%%%
+
 \documentclass[
 $if(fontsize)$
   $fontsize$,
@@ -37,7 +40,11 @@ $if(background-image)$
 \pgfdeclareimage[width=\paperwidth,height=\paperheight]{background}{$background-image$}
 \usebackgroundtemplate{\pgfuseimage{background}}
 $endif$
+
 \usepackage{pgfpages}
+
+%%%%%%%% BEAMER SETTINGS %%%%%%%%%%
+
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{caption label separator}{: }
 \setbeamercolor{caption name}{fg=normal text.fg}
@@ -258,6 +265,20 @@ $else$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 $endif$
+
+%%%%%%%%%%% PAGE LAYOUT %%%%%%%%%%%%%%%
+
+\usepackage[a4paper, margin=1in, total={6.5in, 8in}]{geometry}
+\usepackage{titling}
+\usepackage{fontspec}
+\setmainfont{Adobe Caslon Pro}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{30pt}
+\usepackage{anyfontsize}
+\usepackage{abstract}
+
+
 $if(beamer)$
 \newif\ifbibliography
 $endif$
@@ -540,6 +561,8 @@ $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
 $endif$
+
+%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%
 
 \begin{document}
 $if(has-frontmatter)$
